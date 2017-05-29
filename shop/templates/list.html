@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+        {% for item in pList %}
+        <div id="list">
+                <li>{{item.id}}</li>
+                <li><a href="/list/{{item.id}}/">{{item.Name}}</a></li>
+                <li><img src="{{item.Thumbnail.url}}" /></li>
+                <li>{{item.Price}}</li>
+        </div>
+        {% endfor %}
+
+{% endblock %}

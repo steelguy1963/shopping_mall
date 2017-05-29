@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+        <div id="list">
+                <li>{{pShow.Name}}</li>
+                <li><img src="{{pShow.Thumbnail.url}}" height="150" width="200" /></li>
+                <li>{{pShow.Price}}</li>
+                <li>{{pShow.Stock}}</li>
+                <li>{{pShow.Country}}</li>
+                <li>{{pShow.Abstraction}}</li>
+        </div>
+
+{% endblock %}
