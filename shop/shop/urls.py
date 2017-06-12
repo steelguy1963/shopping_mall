@@ -16,13 +16,16 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.conf.urls import url
 from django.contrib import admin
-from product import views
-import settings
+from product import views as product_view
+from users import views as user_view
+from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^list/$', views.listProduct),
-    url(r'^list/(?P<product_id>\d+)/$', views.showProduct),
+    url(r'^list/$', product_view.listProduct),
+    url(r'^list/(?P<product_id>\d+)/$', product_view.showProduct),
+    url(r'^signup/$', user_view.signup),
+    url(r'^profile/$', user_view.editProfile)
 ]
 
 if settings.DEBUG:

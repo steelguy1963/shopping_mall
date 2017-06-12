@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}" />
+{% endblock %}
+{% block contents %}
+<div class="container">
+    <div class="form-box">
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                {{ field.label }}
+            </div>
+            {{ field }}
+            <div>
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <button type="submit">수정</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
