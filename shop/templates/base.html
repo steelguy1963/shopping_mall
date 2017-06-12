@@ -8,16 +8,22 @@
         <title>Shopping Mall</title>
         {% load staticfiles %}
         <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}" />
+        {% block head %}
+        {% endblock %}
     </head>
     <body>
-        
-        <script src="js/main.js"></script>
-        <head> </head>
- 
+        <header> 
+            <div class="container header-container">
+                <div class="header-logo">LOGO</div>
+                <ul class="header-menu">
+                    <li><a href="#">상품목록</a></li>
+                    <li><a href="#">로그인</a></li>
+                </ul>
+            </div>
+        </header>
         {% block contents %}
         {% endblock %}
-
-
         <footer> </footer>
+        <script src="js/main.js"></script>
     </body>
 </html>

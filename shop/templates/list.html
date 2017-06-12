@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/list.css" %}" />
+{% endblock %}
 {% block contents %}
-
-        {% for item in pList %}
-        <div id="list">
-                <li>{{item.id}}</li>
-                <li><a href="/list/{{item.id}}/">{{item.Name}}</a></li>
-                <li><img src="{{item.Thumbnail.url}}" /></li>
-                <li>{{item.Price}}</li>
+<div class="container list-container">
+{% for item in pList %}
+    <div class="list-product">
+        <div class="list-img">
+            <img src="{{item.Thumbnail.url}}" />
         </div>
-        {% endfor %}
-
+        <div class="list-info">
+            <div class="list-info-number">{{item.id}}</div>
+            <h4 class="list-info-name">{{item.Name}}</h4>
+            <p class="list-info-price">{{item.Price}}</p>
+        </div>
+        <div class="list-buttons">
+            <a href="/list/{{item.id}}/"><button>찜하기</button></a>
+            <a href="/list/{{item.id}}/"><button>상세보기</button></a>
+            <button>장바구니</button>
+            <button>구매하기</button>
+        </div>
+    </div>
+{% endfor %}
+</div>
 {% endblock %}

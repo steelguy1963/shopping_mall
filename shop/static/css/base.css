@@ -1,18 +1,35 @@
-div#list {
-    position: absolute;
-    top: 30px;
-    left: 0px;
-    height: 20px;
-    width: 100%;
-    display: table;
-    table-layout: fixed;
-    border-spacing: 40px 0px;
-    font-size: 26px;
+body {
+    margin:0;
 }
-
-div#list > li {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    font-weight: bold;
+header {
+    background-color:#ffaaaa;
+}
+.container {
+    width:1080px;
+    margin:0 auto;
+}
+.header-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* flex-start, flex-end, space-around, center  */
+    align-items:center;
+    /* flex-start, flex-end, center, stretch */
+    font-size:1.4rem;
+}
+.header-logo {
+    flex:0;
+}
+.header-menu {
+    list-style: none;
+}
+.header-menu > li {
+    display:inline-block;
+    margin-left:48px;
+}
+.header-menu a {
+    color:#494846;
+}
+a {
+    text-decoration: none;
 }

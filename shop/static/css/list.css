@@ -1,0 +1,47 @@
+.list-container {
+    padding:120px 0;
+}
+.list-product {
+    display: flex;
+    justify-content: space-between;
+    padding:16px 12px;
+    border-bottom:1px solid #c2c2c2;
+}
+.list-container >  a:first-child > .list-product {
+    border-top:1px solid #c2c2c2;
+}
+.list-product:hover {
+    background-color:#ffefef;
+}
+.list-img > img{
+    width:200px;
+}
+.list-info {
+    flex:1;
+    padding-left:20px;
+}
+.list-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:140px;
+}
+.list-buttons button {
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:0;
+    outline:0;
+    background-color:green;
+    color:white;
+    border-radius:6px;
+    opacity:0;
+    cursor:pointer;
+    transition: 0.2s ease all;
+}
+.list-product:hover button {
+    opacity:1;
+}
+.list-buttons button:hover {
+    background-color: yellowgreen;
+}
