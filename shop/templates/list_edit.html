@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/list.css" %}" />
+{% endblock %}
+{% block contents %}
+<div class="container list-container">
+{% for item in pList %}
+    <div class="list-product">
+        <div class="list-img">
+            <img src="{{item.Thumbnail.url}}" />
+        </div>
+        <div class="list-info">
+            <div class="list-info">품번 : {{item.id}}</div>
+            <h4 class="list-info">품명 : {{item.Name}}</h4>
+            <p class="list-info">가격 : {{item.Price}}원</p>
+            <p class="list-info">수량 : {{item.Stock}}개</p>
+            <p class="list-info">원산지 : {{item.Country}}</p>
+            <p class="list-info">설명 : {{item.Abstraction}}</p>
+        </div>
+        <div class="list-buttons">
+            <a href="/list_edit/{{item.id}}/"><button>수정하기</button></a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

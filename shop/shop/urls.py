@@ -25,7 +25,9 @@ urlpatterns = [
     url(r'^list/$', product_view.listProduct),
     url(r'^list/(?P<product_id>\d+)/$', product_view.showProduct),
     url(r'^signup/$', user_view.signup),
-    url(r'^profile/$', user_view.editProfile)
+    url(r'^profile/$', user_view.editProfile),
+    url(r'^list_edit/$', product_view.listProduct_edit),
+    url(r'^list_edit/(?P<product_id>\d+)/$', product_view.editProduct),
 ]
 
 if settings.DEBUG:
