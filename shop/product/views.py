@@ -31,5 +31,7 @@ def editProduct(request, product_id):
     if request.method == "POST":
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect('/list_edit/')
+
 
     return render(request, 'product_edit.html', {'form':form})
