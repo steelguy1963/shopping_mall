@@ -2,9 +2,11 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from product.models import Product
 from product.forms import ProductForm
+
+import json
 
 # Create your views here.
 
@@ -35,13 +37,29 @@ def createProduct(request):
 def editProduct(request, product_id):
     product_info = None
     try:
-		product_info = get_object_or_404(Product, pk=product_id)
+        product_info = get_object_or_404(Product,pk=product_id)
     except:
-		product_info = None
-    form = ProductForm(request.POST or None, instance=product_info)
+        product_info = None
+    
+    form = ProductForm()
     if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES ,instance=product_info)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/list_edit/')
 
     return render(request, 'product_edit.html', {'form':form})
+
+def deleteProduct(request, product_id):
+    product_info = None
+    result = None
+    try:
+        product_info = get_object_or_404(Product,pk=product_id)
+        product_info.delete()
+        result = {'code':'success'}
+    except:
+        result = {'code':'fail'}
+
+    result = json.dumps(result)
+    
+    return HttpResponse(result)
