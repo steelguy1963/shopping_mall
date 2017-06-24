@@ -1,0 +1,19 @@
+input,
+button {
+    padding:6px 12px;
+}
+button {
+    background-color:#ff5a5f;
+    border:none;
+    outline:none;
+    color:#fff;
+}
+input:focus {
+    border:1px solid #ff5a5f;
+}
+.form-box {
+    border:1px solid #efefef;
+    width:600px;
+    padding:100px;
+    margin:200px auto;
+}
