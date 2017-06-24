@@ -21,6 +21,17 @@ def listProduct_edit(request):
 	return render(request, 'list_edit.html', {'pList':pList})
 
 
+def createProduct(request):
+    product_info = None
+    form = ProductForm(request.POST or None, instance=product_info)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/list_edit/')
+
+    return render(request, 'product_edit.html', {'form':form})
+
+
 def editProduct(request, product_id):
     product_info = None
     try:
@@ -32,6 +43,5 @@ def editProduct(request, product_id):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/list_edit/')
-
 
     return render(request, 'product_edit.html', {'form':form})

@@ -45,3 +45,21 @@
 .list-buttons button:hover {
     background-color: yellowgreen;
 }
+.create-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width:140px;
+}
+.create-buttons button {
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:0;
+    outline:0;
+    background-color:green;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    transition: 0.2s ease all;
+}
