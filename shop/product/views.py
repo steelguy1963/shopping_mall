@@ -41,9 +41,11 @@ def editProduct(request, product_id):
     except:
         product_info = None
     
-    form = ProductForm()
+    form = ProductForm(data=request.POST or None, files=request.FILES or None ,instance=product_info)
+    # 주석처리 된 코드도 위의 코드와 동치입니다. (인자 순서에 따른 인자명 생략)
+    # form = ProductForm(request.POST or None, request.FILES or None ,instance=product_info)
+    
     if request.method == "POST":
-        form = ProductForm(request.POST, request.FILES ,instance=product_info)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/list_edit/')

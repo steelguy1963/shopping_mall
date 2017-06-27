@@ -7,7 +7,9 @@
 {% endblock %}
 {% block contents %}
 <div class="container list-container">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
+    <!-- HTML에서 파일 input을 전달할 때에는 form의 인코딩 타입을 꼭 multipart/form-data 로 지정해주셔야합니다 -->
+    <!-- 아니면 파일이 서버로 전송되지 않아요! -->
         {% csrf_token %}
         {% for field in form %}
             <div class="list-product">
