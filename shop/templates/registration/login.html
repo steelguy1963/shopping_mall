@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}" />
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h1>Log In</h1>
+    <form method="post">
+        <% csrf_token %>
+
+        <% if form.erros %>
+        <p class="errornote">Your username and password didn't match. Please try again.</p>
+        <% endif %>
+
+        <fieldset class="aligned">
+            <div class="form-row">
+                {{ form.username.label_tag }} {{ form.username }}
+            </div>
+            <div class="form-row">
+                {{ form.password.label_tag }} {{ form.password }}
+            </div>
+        </fieldset>
+
+        <div class="submit-row">
+            <input type="submit" value="Log In"/>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </div>
+
+        <script type="text/javascript">document.getElementById('id_username').focus();
+        </script>
+
+    </form>
+</div>
+{% endblock %}

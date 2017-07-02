@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from users.forms import ProfileForm
 from users.models import Profile
@@ -10,8 +10,8 @@ def signup(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-            return render(request, 'signup-success.html')
-    return render(request, 'signup.html', {'form':form})
+            return render(request, 'list.html')
+    return render(request, 'registration/signup.html', {'form':form})
 
 @login_required
 def editProfile(request):
@@ -24,4 +24,4 @@ def editProfile(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-    return render(request, 'profile.html', {'form':form})
+    return render(request, 'registration/profile.html', {'form':form})

@@ -135,7 +135,8 @@ STATICFILES_DIRS = (
     ("fonts",os.path.join(STATIC_ROOT,'fonts'))
 )
 
-LOGIN_URL = '/user/login/'
-
+LOGIN_URL = '/accounts/login/'
+LOGOUT_URL = '/accounts/logout/'
+LOGIN_REDIRECT_URL = '/'
 
 
