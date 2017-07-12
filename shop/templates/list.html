@@ -12,9 +12,11 @@
             <img src="{{item.Thumbnail.url}}" />
         </div>
         <div class="list-info">
-            <div class="list-info-number">{{item.id}}</div>
-            <h4 class="list-info-name">{{item.Name}}</h4>
-            <p class="list-info-price">{{item.Price}}</p>
+            <a href="/list/{{item.pk}}/">
+                <div class="list-info-number">{{item.id}}</div>
+                <h4 class="list-info-name">{{item.Name}}</h4>
+                <p class="list-info-price">{{item.Price}}</p>
+            </a>
         </div>
         <div class="list-buttons">
             <a href="/list/{{item.id}}/"><button>찜하기</button></a>

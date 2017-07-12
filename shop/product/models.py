@@ -23,5 +23,15 @@ class Product(models.Model):
 	Thumbnail = models.FileField(upload_to='product')
 	Price = models.IntegerField()
 	Stock = models.IntegerField(null=True)
-	Country = models.CharField(max_length=3,choices=COUNTRY_CHOICE)
+	Country = models.CharField(max_length=3,choices=COUNTRY_CHOICE,default='KOR')
 	Abstraction = models.CharField(max_length=500, null=True, blank=True)
+	
+	def __str__(self):
+		return self.Name
+
+	def multiply(self):
+		return self.Price * self.Stock
+
+class ProductImage(models.Model):
+	Product = models.ForeignKey(Product)
+	Image = models.FileField(upload_to='product_image')

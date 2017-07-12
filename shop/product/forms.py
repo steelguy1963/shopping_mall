@@ -7,11 +7,6 @@ class ProductForm(forms.ModelForm):
         model = models.Product
         exclude = ['Id']
         widgets = {
-            'Name': forms.TextInput(),
-            'Thumbnail': forms.FileInput(),
-            'Price': forms.TextInput(),
-            'Stock': forms.TextInput(),
-            'Country': forms.RadioSelect(),
-            'Abstract': forms.TextInput()
+            'Abstraction': forms.Textarea({'class':'form-active'})
         }
 

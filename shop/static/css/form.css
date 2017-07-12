@@ -1,19 +1,22 @@
 input,
-button {
+select,
+textarea {
+    width:100%;
     padding:6px 12px;
+    box-sizing: border-box;
+    outline:none;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    border:1px solid #e54a4f;
 }
 button {
-    background-color:#ff5a5f;
+    width:300px;
+    height:60px;
+    background-color:#e54a4f;
+    color:#fff;
+    font-size:17px;
     border:none;
     outline:none;
-    color:#fff;
-}
-input:focus {
-    border:1px solid #ff5a5f;
-}
-.form-box {
-    border:1px solid #efefef;
-    width:600px;
-    padding:100px;
-    margin:200px auto;
 }

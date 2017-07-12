@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static "css/list.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}" />
+{% endblock %}
+{% block contents %}
+<div class="container list-container form-create">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="list-product">
+            <div class="list-info">
+                    {{ form.Name.label }}
+                    {{ form.Name }}
+                <div class="list-info">
+                    {{ form.Name.errors }}
+                </div>
+            </div>
+        </div>
+        <div class="list-product">
+            <div class="list-info">
+                    {{ form.Thumbnail.label }}
+                    {{ form.Thumbnail }}
+                <div class="list-info">
+                    {{ form.Thumbnail.errors }}
+                </div>
+            </div>
+        </div>
+        <div class="list-product">
+            <div class="list-info">
+                <div class="list-info">
+                    {{ form.Price.label }}
+                </div>
+                    {{ form.Price }}
+                <div class="list-info">
+                    {{ form.Price.errors }}
+                </div>
+            </div>
+            <div class="list-info">
+                <div class="list-info">
+                    {{ form.Stock.label }}
+                </div>
+                    {{ form.Stock }}
+                <div class="list-info">
+                    {{ form.Stock.errors }}
+                </div>
+            </div>
+        </div>
+        <div class="list-product">
+            <div class="list-info">
+                <div class="list-info">
+                    {{ form.Country.label }}
+                </div>
+                    {{ form.Country }}
+                <div class="list-info">
+                    {{ form.Country.errors }}
+                </div>
+            </div>
+        </div>
+        <div class="list-product">
+            <div class="list-info">
+                <div class="list-info">
+                    {{ form.Abstraction.label }}
+                </div>
+                    {{ form.Abstraction }}
+                <div class="list-info">
+                    {{ form.Abstraction.errors }}
+                </div>
+            </div>
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+{% endblock %}

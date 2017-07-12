@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
-from product.models import Product
+from product.models import Product, ProductImage
 from product.forms import ProductForm
 
 import json
@@ -16,6 +16,7 @@ def listProduct(request):
 
 def showProduct(request, product_id):
 	pShow = get_object_or_404(Product, pk=product_id)
+    # amount = pShow.Price * pShow.Stock
 	return render(request, 'product.html', {'pShow':pShow})
 
 def listProduct_edit(request):
@@ -24,14 +25,13 @@ def listProduct_edit(request):
 
 
 def createProduct(request):
-    product_info = None
-    form = ProductForm(request.POST or None, instance=product_info)
+    form = ProductForm(data=request.POST or None, files=request.FILES or None)
     if request.method == "POST":
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/list_edit/')
 
-    return render(request, 'product_edit.html', {'form':form})
+    return render(request, 'product_create.html', {'form':form})
 
 
 def editProduct(request, product_id):
